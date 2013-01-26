@@ -19,4 +19,5 @@ public class PersonManager {
 	public List<Person> getAll(){
 		return db.getPersons();
 		
+	}
 }

@@ -9,7 +9,7 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
-import serwisaparatow.CameraService_MPR.objects.Camera;
+import serwisaparatow.CameraService_MPR.objects.*;
 
 public class Database {
 
@@ -17,10 +17,18 @@ public class Database {
 	private Statement statement;
 	private String url = "jdbc:hsqldb:hsql://localhost/workdb";
 	private ResultSet rs;
-	private String createTable = "Create table Cameras (title varchar(40),kind varchar(20),serial varchar(4),dateOfPrint varchar(20),pages int,own boolean,quantity int);";
-    PreparedStatement addCamera;
+	
+	private String createTable = "Create table Cameras (id varchar(10),name varchar(50),model varchar(20),serialNumber varchar(10),dateOfReceive varchar(10));";
+	
+	private String createTable2 = "Create table Persons (name varchar(20),surName varchar(20),city varchar(20),phoneNumber varchar(10));";
+    
+	PreparedStatement addCamera;
     PreparedStatement removeCamera;
     PreparedStatement getCameras;
+    
+    PreparedStatement addPerson;
+    PreparedStatement removePerson;
+    PreparedStatement getPersons;
 	
 	
 	public Database() {
@@ -46,9 +54,27 @@ public class Database {
           removeCamera=connection.prepareStatement("delete from Cameras where id = ?");
           getCameras=connection.prepareStatement("select * from Cameras");
 			
-		} catch (SQLException e) {
-			e.printStackTrace();
+		
+		tableExists = false;
+		rs.first();
+		while (rs.next()) {
+			if ("Persons".equalsIgnoreCase(rs.getString("TABLE_NAME"))) {
+				tableExists = true;
+				break;
+			}
 		}
+
+		if (!tableExists) {
+			statement.executeUpdate(createTable2);
+
+		}
+      addPerson=connection.prepareStatement("insert into Persons (name,surName,city,phoneNumber) values (?,?,?,?);");
+      removePerson=connection.prepareStatement("delete from Persons where name = ?");
+      getPersons=connection.prepareStatement("select * from Persons");
+		
+	} catch (SQLException e) {
+		e.printStackTrace();
+	}
 	}
 	public boolean addCamera(Camera c){
 		try {
@@ -80,6 +106,43 @@ public class Database {
 			while (rs.next()){
 				Camera c = new Camera(rs.getString("id"),rs.getString("name"),rs.getString("model"),rs.getString("serialNumber"),rs.getString("dateOfReceive"));
 				result.add(c);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();			
+		}
+		return result;
+	}
+	
+	//Person
+	public boolean addPerson(Person p){
+		try {
+			addPerson.setString(1, p.getName());
+			addPerson.setString(2, p.getSurName());
+			addPerson.setString(3, p.getCity());
+			addPerson.setString(4, p.getPhoneNumber());
+			return addPerson.execute();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return false;
+	}	
+	public boolean removePerson(Person p){
+		try {
+			removePerson.setString(1, p.getPhoneNumber());				
+			return removePerson.execute();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return false;
+}
+	public List<Person> getPersons(){
+		ArrayList<Person> result=new ArrayList<Person>(); 
+		
+		try {
+			ResultSet rs=getPersons.executeQuery();
+			while (rs.next()){
+				Person p = new Person(rs.getString("name"),rs.getString("surName"),rs.getString("city"),rs.getString("phoneNumber"));
+				result.add(p);
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();			

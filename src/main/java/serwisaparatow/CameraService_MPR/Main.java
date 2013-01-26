@@ -2,13 +2,14 @@ package serwisaparatow.CameraService_MPR;
 
 import java.util.List;
 
-import serwisaparatow.CameraService_MPR.manager.CameraManager;
-import serwisaparatow.CameraService_MPR.objects.Camera;
+import serwisaparatow.CameraService_MPR.manager.*;
+import serwisaparatow.CameraService_MPR.objects.*;
 
 public class Main {
 
 
 	public static void main(String[] args) {
+		//Camera
 		Camera camera = new Camera ("1","Canon","550d","CAN0284627","27.08.2011");
 		CameraManager manager = new CameraManager ();
 		manager.addCamera(camera);
@@ -20,7 +21,18 @@ public class Main {
 		for (Camera c: lista){
 			System.out.println(c);
 		}
-
+		//Person
+		Person person = new Person ("Agata", "Filipiuk", "Sopot", "9876543");
+		PersonManager manager = new PersonManager ();
+		manager.addPerson(person);
+		
+		Person person2 = new Person ("Wiktoria", "Skrobotun", "Gdańsk", "1234567");
+		manager.addPerson(person2);
+		 
+		List<Person>lista= manager.getAll();	
+		for (Person p: lista){
+			System.out.println(p);
+		}
 
 	}
 
