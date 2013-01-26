@@ -1,0 +1,95 @@
+<class-diagram version="1.0.11" icons="true" automaticImage="PNG" always-add-relationships="false" 
+  generalizations="true" realizations="true" associations="true" dependencies="false" nesting-relationships="true">  
+  <class id="1" corner="BOTTOM_RIGHT" language="java" name="serwisaparatow.CameraService_MPR.manager.PersonManager" 
+    project="CameraService_MPR" 
+    file="/CameraService_MPR/src/main/java/serwisaparatow/CameraService_MPR/manager/PersonManager.java" binary="false">    
+    <position height="127" width="205" x="487" y="321"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true"/>      
+      <operations public="true" package="true" protected="true" private="true"/>    
+    </display>  
+  </class>  
+  <class id="2" corner="BOTTOM_RIGHT" language="java" name="serwisaparatow.CameraService_MPR.tests.CameraManagerTest" 
+    project="CameraService_MPR" 
+    file="/CameraService_MPR/src/test/java/serwisaparatow/CameraService_MPR/tests/CameraManagerTest.java" binary="false">    
+    <position height="161" width="190" x="148" y="120"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true"/>      
+      <operations public="true" package="true" protected="true" private="true"/>    
+    </display>  
+  </class>  
+  <class id="3" corner="BOTTOM_RIGHT" language="java" name="serwisaparatow.CameraService_MPR.manager.CameraManager" 
+    project="CameraService_MPR" 
+    file="/CameraService_MPR/src/main/java/serwisaparatow/CameraService_MPR/manager/CameraManager.java" binary="false">    
+    <position height="127" width="205" x="242" y="321"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true"/>      
+      <operations public="true" package="true" protected="true" private="true"/>    
+    </display>  
+  </class>  
+  <class id="4" corner="BOTTOM_RIGHT" language="java" name="serwisaparatow.CameraService_MPR.Main" 
+    project="CameraService_MPR" file="/CameraService_MPR/src/main/java/serwisaparatow/CameraService_MPR/Main.java" 
+    binary="false">    
+    <position height="93" width="166" x="378" y="120"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true"/>      
+      <operations public="true" package="true" protected="true" private="true"/>    
+    </display>  
+  </class>  
+  <class id="5" corner="BOTTOM_RIGHT" language="java" name="serwisaparatow.CameraService_MPR.tests.PersonManagerTest" 
+    project="CameraService_MPR" 
+    file="/CameraService_MPR/src/test/java/serwisaparatow/CameraService_MPR/tests/PersonManagerTest.java" binary="false">    
+    <position height="161" width="190" x="584" y="120"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true"/>      
+      <operations public="true" package="true" protected="true" private="true"/>    
+    </display>  
+  </class>  
+  <class id="6" corner="BOTTOM_RIGHT" language="java" name="serwisaparatow.CameraService_MPR.database.Database" 
+    project="CameraService_MPR" 
+    file="/CameraService_MPR/src/main/java/serwisaparatow/CameraService_MPR/database/Database.java" binary="false">    
+    <position height="382" width="207" x="364" y="488"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true"/>      
+      <operations public="true" package="true" protected="true" private="true"/>    
+    </display>  
+  </class>  
+  <association id="7">    
+    <end type="SOURCE" refId="2" navigable="false">      
+      <attribute id="8" name="manager"/>      
+      <multiplicity id="9" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="3" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="10">    
+    <end type="SOURCE" refId="3" navigable="false">      
+      <attribute id="11" name="db"/>      
+      <multiplicity id="12" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="6" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="13">    
+    <end type="SOURCE" refId="5" navigable="false">      
+      <attribute id="14" name="manager"/>      
+      <multiplicity id="15" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="1" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="16">    
+    <end type="SOURCE" refId="1" navigable="false">      
+      <attribute id="17" name="db"/>      
+      <multiplicity id="18" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="6" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <classifier-display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+    visibility="true">    
+    <attributes public="true" package="true" protected="true" private="true"/>    
+    <operations public="true" package="true" protected="true" private="true"/>  
+  </classifier-display>  
+  <association-display labels="true" multiplicity="true"/>
+</class-diagram>
