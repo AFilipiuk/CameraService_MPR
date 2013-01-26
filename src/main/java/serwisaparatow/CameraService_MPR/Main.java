@@ -23,14 +23,14 @@ public class Main {
 		}
 		//Person
 		Person person = new Person ("Agata", "Filipiuk", "Sopot", "9876543");
-		PersonManager manager = new PersonManager ();
-		manager.addPerson(person);
+		PersonManager manager_p = new PersonManager ();
+		manager_p.addPerson(person);
 		
 		Person person2 = new Person ("Wiktoria", "Skrobotun", "Gdańsk", "1234567");
-		manager.addPerson(person2);
+		manager_p.addPerson(person2);
 		 
-		List<Person>lista= manager.getAll();	
-		for (Person p: lista){
+		List<Person>listap= manager_p.getAll();	
+		for (Person p: listap){
 			System.out.println(p);
 		}
 
