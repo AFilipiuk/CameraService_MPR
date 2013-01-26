@@ -91,7 +91,7 @@ public class Database {
 	}	
 	public boolean removeCamera(Camera c){
 		try {
-			removeCamera.setString(1, c.getSerialNumber());				
+			removeCamera.setString(1, c.getId());				
 			return removeCamera.execute();
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -128,7 +128,7 @@ public class Database {
 	}	
 	public boolean removePerson(Person p){
 		try {
-			removePerson.setString(1, p.getPhoneNumber());				
+			removePerson.setString(1, p.getName());				
 			return removePerson.execute();
 		} catch (SQLException e) {
 			e.printStackTrace();

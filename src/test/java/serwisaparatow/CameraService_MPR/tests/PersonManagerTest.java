@@ -16,19 +16,20 @@ public class PersonManagerTest {
 	public void testAddPerson() {
 		manager.addPerson(person_1);
 		int i = manager.getAll().size();
-		manager.addPerson(person_2);
+		manager.addPerson(person_1);
 		assertEquals(i,manager.getAll().size()-1);
+	}
+	@Test
+	public void testDeletePerson() {
+		manager.addPerson(person_2);
+		int i = manager.getAll().size();
+		manager.removePerson(person_2);
+		assertEquals(i,manager.getAll().size()+1);
 	}
 	@Test
 	public void testShowPerson() {
 		assertNotNull(manager.getAll());
 		
 	}
-	/*@Test
-	public void testDeletePerson() {
-		manager.addPerson(person_1);
-		int i = manager.getAll().size();
-		manager.removePerson(person_2);
-		assertEquals(i,manager.getAll().size()+1);
-	}*/
+
 }

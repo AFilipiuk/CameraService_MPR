@@ -15,19 +15,20 @@ public class CameraManagerTest {
 	public void testAddCamera() {
 		manager.addCamera(camera_1);
 		int i = manager.getAll().size();
-		manager.addCamera(camera_2);
+		manager.addCamera(camera_1);
 		assertEquals(i,manager.getAll().size()-1);
+	}
+	@Test
+	public void testDeleteCamera() {
+		manager.addCamera(camera_2);
+		int i = manager.getAll().size();
+		manager.removeCamera(camera_2);
+		assertEquals(i,manager.getAll().size()+1);
 	}
 	@Test
 	public void testShowCamera() {
 		assertNotNull(manager.getAll());
 		
 	}
-	/*@Test
-	public void testDeleteCamera() {
-		manager.addCamera(camera_1);
-		int i = manager.getAll().size();
-		manager.removeCamera(camera_2);
-		assertEquals(i,manager.getAll().size()+1);
-	}*/
+
 }
